@@ -16,4 +16,7 @@ public class ArtAlbum extends EBook {
     public ArtAlbum(String isbn, String title, int noOfPages,double price, float rating) {
         super(isbn, title, noOfPages, price, rating);
     }
+
+    public ArtAlbum() {
+    }
 }

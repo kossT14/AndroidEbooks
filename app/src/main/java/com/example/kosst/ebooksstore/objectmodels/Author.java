@@ -12,6 +12,12 @@ public class Author {
     // List of attributes
     private String id, name, surname;
 
+    public Author(String id, String name, String surname) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+    }
+
     // Getter and setter for id attribute
     public String getId() {
         return id;

@@ -11,4 +11,11 @@
     <string name="title_activity_remove_books">RemoveBooksActivity</string>
     <string name="title_activity_update">UpdateActivity</string>
     <string name="title_activity_update_rating">UpdateRatingActivity</string>
+    <string name="category_hint"><font size="10">Technical, Novel or Art album</font></string>
+    <string name="title_hint"><font size="10">Enter book title</font></string>
+    <string name="no_pages_hint"><font size="10">Enter no. of pages</font></string>
+    <string name="price_hint"><font size="10">Enter price</font></string>
+    <string name="rating_hint"><font size="10">Current rating</font></string>
+    <string name="author_surname_hint"><font size="10">Enter author surname</font></string>
+    <string name="author_name_hint"><font size="10">Enter author name</font></string>
 </resources>

@@ -16,9 +16,7 @@ public class Novel extends EBook {
     public Novel(String isbn, String title, int noOfPages, double price, float rating) {
         super(isbn, title, noOfPages, price, rating);
     }
-    
-    
 
-    
-    
+    public Novel() {
+    }
 }

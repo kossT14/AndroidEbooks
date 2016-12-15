@@ -18,6 +18,6 @@ public class TechnicalBook extends EBook {
         super(isbn, title, noOfPages,  price, rating);
     }
 
-    
-    
+    public TechnicalBook() {
+    }
 }

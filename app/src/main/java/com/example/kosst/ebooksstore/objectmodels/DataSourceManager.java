@@ -1,5 +1,7 @@
 package com.example.kosst.ebooksstore.objectmodels;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 /**
@@ -11,6 +13,8 @@ public class DataSourceManager {
     private ArrayList<Author> listaAutori;
     private ArrayList<EBook> listaCarti;
     private ArrayList<LegaturaCarteAutor> listaLegatura;
+
+    public static final String TAG_LOG_BOOKS = "list books";
 
     public DataSourceManager() {
         this.listaAutori = new ArrayList<>();
@@ -57,7 +61,47 @@ public class DataSourceManager {
         }
     }
 
+    public boolean isValidCategory(String s){
+        boolean isValid = false;
+        if ((s.equalsIgnoreCase("technical book"))
+                || (s.equalsIgnoreCase("novel"))
+                || (s.equalsIgnoreCase("art album")) ) {
+            isValid = true;
+        }
+        return isValid;
+    }
 
+    public String generatedIsbn (){
+        if (listaCarti.isEmpty()) {
+            return "0";
+        }else{
+            return Integer.toString(listaCarti.size()) ;
+        }
+    }
 
+    public String generatedAuthorId (){
+        if (listaAutori.isEmpty()) {
+            return "0";
+        }else{
+            return Integer.toString(listaAutori.size()) ;
+        }
+    }
+
+    public void displayBookList() {
+        for (EBook libraryCatalog1 : listaCarti) {
+            Log.w(TAG_LOG_BOOKS, libraryCatalog1.getIsbn() + " "
+                    + libraryCatalog1.getTitle());
+
+        }
+    }
+
+    public void displayAuthorList() {
+        for (Author a1 : listaAutori) {
+            Log.w(TAG_LOG_BOOKS, a1.getId() + " "
+                    + a1.getSurname() + ""
+                    + a1.getName());
+
+        }
+    }
 
 }

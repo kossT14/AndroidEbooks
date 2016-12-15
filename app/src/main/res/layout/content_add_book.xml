@@ -21,6 +21,34 @@
         android:background="@color/pishwaisser"
 
         >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/row_height"
+            android:layout_marginTop="@dimen/small_margin"
+            android:orientation="horizontal"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Categorie"
+                android:layout_weight="1"
+                android:gravity="center_vertical"/>
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="center_vertical"
+                android:id="@+id/categorie"
+                android:background="@color/cacaniu"
+                android:hint="@string/category_hint"
+                />
+
+        </LinearLayout>
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/row_height"
@@ -64,7 +92,7 @@
                 android:gravity="center_vertical"
                 android:id="@+id/Titlu"
                 android:background="@color/cacaniu"
-                android:hint="baga titlul, neamule"
+                android:hint="@string/title_hint"
                 />
 
         </LinearLayout>
@@ -90,7 +118,7 @@
                 android:gravity="center_vertical"
                 android:id="@+id/Numar_pagini"
                 android:background="@color/cacaniu"
-                android:hint="da nr pagini"
+                android:hint="@string/no_pages_hint"
                 />
 
         </LinearLayout>
@@ -116,7 +144,7 @@
                 android:gravity="center_vertical"
                 android:id="@+id/Pret"
                 android:background="@color/cacaniu"
-                android:hint="da pret"
+                android:hint="@string/price_hint"
                 />
 
         </LinearLayout>
@@ -142,7 +170,7 @@
                 android:gravity="center_vertical"
                 android:id="@+id/Rating"
                 android:background="@color/cacaniu"
-                android:hint="da rating"
+                android:hint="@string/rating_hint"
                 />
 
         </LinearLayout>
@@ -164,11 +192,20 @@
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="4"
+                android:layout_weight="2"
                 android:gravity="center_vertical"
-                android:id="@+id/Autor"
+                android:id="@+id/nume_autor"
                 android:background="@color/cacaniu"
-                android:hint="introdu autor"
+                android:hint="@string/author_surname_hint"
+                />
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="center_vertical"
+                android:id="@+id/prenume_autor"
+                android:background="@color/cacaniu"
+                android:hint="@string/author_name_hint"
                 />
 
 
