@@ -13,4 +13,11 @@
     tools:context="com.example.kosst.ebooksstore.RemoveBooksActivity"
     tools:showIn="@layout/activity_remove_books">
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview1"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
 </RelativeLayout>

@@ -50,6 +50,10 @@ public class DataSourceManager {
         }
     }
 
+    public void removeBookByIndex(int index){
+        listaCarti.remove(index);
+    }
+
     public void addAuthor(Author a){
         listaAutori.add(a);
     }

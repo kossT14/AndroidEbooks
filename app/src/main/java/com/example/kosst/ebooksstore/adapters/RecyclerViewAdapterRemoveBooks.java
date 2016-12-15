@@ -7,10 +7,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.kosst.ebooksstore.MainActivity;
 import com.example.kosst.ebooksstore.R;
-import com.example.kosst.ebooksstore.objectmodels.EBook;
-
-import java.util.ArrayList;
 
 /**
  * Created by kossT on 15.12.2016.
@@ -18,24 +16,19 @@ import java.util.ArrayList;
 
 public class RecyclerViewAdapterRemoveBooks extends RecyclerView.Adapter<RecyclerViewAdapterRemoveBooks.ViewHolder>{
 
-    ArrayList<EBook> SubjectValues;
     Context context;
     View view1;
     ViewHolder viewHolder1;
     TextView textView;
 
-    public RecyclerViewAdapterRemoveBooks(Context context1, ArrayList<EBook> SubjectValues1){
-
-        this.SubjectValues = SubjectValues1;
+    public RecyclerViewAdapterRemoveBooks(Context context1){
         this.context = context1;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
         public TextView textView;
-        public TextView authorTv;
-        public TextView ratingTv;
-        public TextView priceTv;
+
         public TextView categoryTv;
         public Button removeButton;
 
@@ -52,7 +45,7 @@ public class RecyclerViewAdapterRemoveBooks extends RecyclerView.Adapter<Recycle
     @Override
     public RecyclerViewAdapterRemoveBooks.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
 
-        view1 = LayoutInflater.from(context).inflate(R.layout.recyclerview_items,parent,false);
+        view1 = LayoutInflater.from(context).inflate(R.layout.recyclerview_item_remove,parent,false);
 
         viewHolder1 = new ViewHolder(view1);
 
@@ -60,19 +53,24 @@ public class RecyclerViewAdapterRemoveBooks extends RecyclerView.Adapter<Recycle
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position){
+    public void onBindViewHolder(ViewHolder holder, final int position){
 
-        holder.textView.setText(SubjectValues.get(position).getTitle());
+        holder.textView.setText(MainActivity.ds.getListaCarti().get(position).getTitle());
         //holder.authorTv.setText(SubjectValues.get(position).getTitle());
-        holder.ratingTv.setText(Float.toString(SubjectValues.get(position).getRating()));
-        holder.priceTv.setText(Double.toString(SubjectValues.get(position).getPrice()));
-        holder.categoryTv.setText(SubjectValues.get(position).getClass().getSimpleName());
+        holder.categoryTv.setText(MainActivity.ds.getListaCarti().get(position).getClass().getSimpleName());
+        holder.removeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.ds.removeBookByIndex(position);
+                notifyDataSetChanged();
+            }
+        });
 
     }
 
     @Override
     public int getItemCount(){
 
-        return SubjectValues.size();
+        return MainActivity.ds.getListaCarti().size();
     }
 }
