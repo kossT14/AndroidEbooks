@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">EbooksStore</string>
     <string name="action_settings">Settings</string>
+    <string name="buton_add_book">Add book</string>
+    <string name="buton_remove_book">Remove book</string>
+    <string name="buton_list_book">List book</string>
+    <string name="buton_update_pret">Update price</string>
+    <string name="buton_update_rating">Update rating</string>
+    <string name="title_activity_add_book">AddBookActivity</string>
+    <string name="title_activity_list_books">ListBooks</string>
+    <string name="title_activity_remove_books">RemoveBooksActivity</string>
+    <string name="title_activity_update">UpdateActivity</string>
+    <string name="title_activity_update_rating">UpdateRatingActivity</string>
 </resources>

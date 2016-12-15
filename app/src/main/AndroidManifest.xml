@@ -18,6 +18,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".AddBookActivity"
+            android:label="@string/title_activity_add_book"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ListBooksActivity"
+            android:label="@string/title_activity_list_books"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".RemoveBooksActivity"
+            android:label="@string/title_activity_remove_books"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".UpdatePriceActivity"
+            android:label="@string/title_activity_update"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".UpdateRatingActivity"
+            android:label="@string/title_activity_update_rating"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package com.example.kosst.ebooksstore;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -8,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,14 +20,63 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+
+        Button addBook = (Button) findViewById(R.id.buton_add_book);
+        addBook.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, AddBookActivity.class);
+                startActivity(i);
+
+
             }
         });
+
+        Button removeBook = (Button) findViewById(R.id.buton_remove_book);
+        removeBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, RemoveBooksActivity.class);
+                startActivity(i);
+
+
+            }
+        });
+
+        Button listBook = (Button) findViewById(R.id.buton_list_books);
+        listBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, ListBooksActivity.class);
+                startActivity(i);
+
+
+            }
+        });
+
+        Button updatePrice = (Button) findViewById(R.id.update_price);
+        updatePrice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, UpdatePriceActivity.class);
+                startActivity(i);
+
+
+            }
+        });
+
+        Button updateRating = (Button) findViewById(R.id.update_rating);
+        updateRating.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, UpdateRatingActivity.class);
+                startActivity(i);
+
+
+            }
+        });
+
+
     }
 
     @Override
