@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "904030478971",
+    "firebase_url": "https://androidebooks-c12b3.firebaseio.com",
+    "project_id": "androidebooks-c12b3",
+    "storage_bucket": "androidebooks-c12b3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:904030478971:android:90fc789fa0f4942a",
+        "android_client_info": {
+          "package_name": "com.example.kosst.ebooksstore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "904030478971-d2lapmrm3imcmevbkk612pjat35cbr9r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuSpMcq3bs3OT6Y5sx2LbVieR3r7lcRHI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "904030478971-d2lapmrm3imcmevbkk612pjat35cbr9r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

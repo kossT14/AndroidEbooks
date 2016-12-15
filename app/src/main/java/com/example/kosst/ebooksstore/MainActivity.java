@@ -11,7 +11,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
+import com.example.kosst.ebooksstore.objectmodels.Author;
 import com.example.kosst.ebooksstore.objectmodels.DataSourceManager;
+import com.example.kosst.ebooksstore.objectmodels.LegaturaCarteAutor;
+import com.example.kosst.ebooksstore.objectmodels.Novel;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        addBooksandAuthors();
 
 
         Button addBook = (Button) findViewById(R.id.buton_add_book);
@@ -106,4 +110,17 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void addBooksandAuthors(){
+        for (int i = 0; i < 10; i++){
+            Novel n = new Novel( Integer.toString(i), "Titlu carte " + i, 2 * i, 5*i + 7, i % 5);
+            MainActivity.ds.addBook(n);
+            Author a = new Author(Integer.toString(i+2), "Nume " + i, "Prenume " + i);
+            MainActivity.ds.addAuthor(a);
+            MainActivity.ds.addIsbnAndId(n, a);
+
+        }
+
+    }
+
 }

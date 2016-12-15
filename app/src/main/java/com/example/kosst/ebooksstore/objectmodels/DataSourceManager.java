@@ -14,13 +14,27 @@ public class DataSourceManager {
     private ArrayList<EBook> listaCarti;
     private ArrayList<LegaturaCarteAutor> listaLegatura;
 
-    public static final String TAG_LOG_BOOKS = "list books";
+    public static final String TAG_LOG_BOOKS = "lista";
+
+
 
     public DataSourceManager() {
         this.listaAutori = new ArrayList<>();
         this.listaCarti = new ArrayList<>();
         this.listaLegatura = new ArrayList<>();
 
+    }
+
+    public ArrayList<Author> getListaAutori() {
+        return listaAutori;
+    }
+
+    public ArrayList<EBook> getListaCarti() {
+        return listaCarti;
+    }
+
+    public ArrayList<LegaturaCarteAutor> getListaLegatura() {
+        return listaLegatura;
     }
 
     public void addBook(EBook b){
@@ -98,7 +112,7 @@ public class DataSourceManager {
     public void displayAuthorList() {
         for (Author a1 : listaAutori) {
             Log.w(TAG_LOG_BOOKS, a1.getId() + " "
-                    + a1.getSurname() + ""
+                    + a1.getSurname() + " "
                     + a1.getName());
 
         }
