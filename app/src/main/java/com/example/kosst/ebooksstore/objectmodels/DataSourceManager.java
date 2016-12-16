@@ -2,6 +2,8 @@ package com.example.kosst.ebooksstore.objectmodels;
 
 import android.util.Log;
 
+import com.example.kosst.ebooksstore.MainActivity;
+
 import java.util.ArrayList;
 
 /**
@@ -121,5 +123,15 @@ public class DataSourceManager {
 
         }
     }
+
+    public void updatePrice(int index, double price) {
+        for (int i = 0; i < MainActivity.ds.listaCarti.size(); i++ ){
+            if (i == index) {
+                listaCarti.get(i).setPrice(price);
+            }
+        }
+    }
+
+
 
 }
