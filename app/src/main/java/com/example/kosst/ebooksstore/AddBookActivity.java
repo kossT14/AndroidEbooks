@@ -1,28 +1,21 @@
 package com.example.kosst.ebooksstore;
 
-import android.content.Intent;
+import android.app.AlertDialog;
+import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.widget.EditText;
-import android.widget.TextView;
 
+import com.example.kosst.ebooksstore.database.DB;
+import com.example.kosst.ebooksstore.database.DbProvider;
 import com.example.kosst.ebooksstore.objectmodels.ArtAlbum;
 import com.example.kosst.ebooksstore.objectmodels.Author;
-import com.example.kosst.ebooksstore.objectmodels.EBook;
-import com.example.kosst.ebooksstore.objectmodels.LegaturaCarteAutor;
 import com.example.kosst.ebooksstore.objectmodels.Novel;
 import com.example.kosst.ebooksstore.objectmodels.TechnicalBook;
-
-import static android.R.attr.category;
-import static android.R.attr.title;
 
 public class AddBookActivity extends AppCompatActivity {
 
@@ -116,6 +109,14 @@ public class AddBookActivity extends AppCompatActivity {
                                                             Float.parseFloat(rating.getText().toString()));
                                                     MainActivity.ds.addBook(eb);
                                                     MainActivity.ds.addIsbnAndId(eb, autor);
+
+                                                    ContentValues record = new ContentValues();
+                                                    record.put( DB.Books.ID, MainActivity.ds.generatedIsbn() );
+                                                    record.put( DB.Books.TITLE, title.getText().toString());
+                                                    record.put( DB.Books.PRICE, Double.parseDouble(price.getText().toString()));
+                                                    record.put(DB.Books.RATING, Float.parseFloat(rating.getText().toString()));
+                                                    record.put(DB.Books.CATEGORY, "Technical");
+                                                    DbProvider.getInstance().insert( DB.Books.TABLE_NAME, record );
                                                     break;
                                                 }
                                                 case "novel": {
@@ -125,6 +126,14 @@ public class AddBookActivity extends AppCompatActivity {
                                                             Float.parseFloat(rating.getText().toString()));
                                                     MainActivity.ds.addBook(eb);
                                                     MainActivity.ds.addIsbnAndId(eb, autor);
+
+                                                    ContentValues record = new ContentValues();
+                                                    record.put( DB.Books.ID, "abcd" );
+                                                    record.put( DB.Books.TITLE, title.getText().toString());
+                                                    record.put( DB.Books.PRICE, Double.parseDouble(price.getText().toString()));
+                                                    record.put(DB.Books.RATING, Float.parseFloat(rating.getText().toString()));
+                                                    record.put(DB.Books.CATEGORY, "Novel");
+                                                    DbProvider.getInstance().insert( DB.Books.TABLE_NAME, record );
                                                     break;
                                                 }
                                                 case "art album": {
@@ -134,6 +143,14 @@ public class AddBookActivity extends AppCompatActivity {
                                                             Float.parseFloat(rating.getText().toString()));
                                                     MainActivity.ds.addBook(eb);
                                                     MainActivity.ds.addIsbnAndId(eb, autor);
+
+                                                    ContentValues record = new ContentValues();
+                                                    record.put( DB.Books.ID, MainActivity.ds.generatedIsbn() );
+                                                    record.put( DB.Books.TITLE, title.getText().toString());
+                                                    record.put( DB.Books.PRICE, Double.parseDouble(price.getText().toString()));
+                                                    record.put(DB.Books.RATING, Float.parseFloat(rating.getText().toString()));
+                                                    record.put(DB.Books.CATEGORY, "Art album");
+                                                    DbProvider.getInstance().insert( DB.Books.TABLE_NAME, record );
                                                     break;
                                                 }
                                                 default: {
