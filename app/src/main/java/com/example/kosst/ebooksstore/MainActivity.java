@@ -15,9 +15,10 @@ import android.widget.Toast;
 
 import com.example.kosst.ebooksstore.database.DB;
 import com.example.kosst.ebooksstore.database.DbProvider;
-import com.example.kosst.ebooksstore.objectmodels.Author;
+import com.example.kosst.ebooksstore.objectmodels.ArtAlbum;
 import com.example.kosst.ebooksstore.objectmodels.DataSourceManager;
 import com.example.kosst.ebooksstore.objectmodels.Novel;
+import com.example.kosst.ebooksstore.objectmodels.TechnicalBook;
 
 import static com.example.kosst.ebooksstore.objectmodels.DataSourceManager.TAG_LOG_BOOKS;
 
@@ -31,9 +32,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        addBooksandAuthors();
+
 
         addBooksAndAuthorsToDB();
+        addBooksandAuthors();
+
 
 
         Button addBook = (Button) findViewById(R.id.buton_add_book);
@@ -138,14 +141,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addBooksandAuthors(){
-        for (int i = 0; i < 10; i++){
-            Novel n = new Novel( Integer.toString(i), "Titlu carte " + i, 2 * i, 5*i + 7, i % 5);
-            MainActivity.ds.addBook(n);
-            Author a = new Author(Integer.toString(i+2), "Nume " + i, "Prenume " + i);
-            MainActivity.ds.addAuthor(a);
-            MainActivity.ds.addIsbnAndId(n, a);
-
+        Cursor c = DbProvider.getInstance().query( true, DB.Books.TABLE_NAME, null, null,
+                null, null, null, null, null );
+        c.moveToFirst();
+        String bookTitle = "";
+        String bookCategory = "";
+        double price = 0d;
+        float rating = 0f;
+        String isbn = "";
+        while (c.moveToNext()){
+            bookTitle = c.getString(c.getColumnIndex(DB.Books.TITLE));
+            price = Double.parseDouble(c.getString(c.getColumnIndex(DB.Books.PRICE)));
+            rating = Float.parseFloat(c.getString(c.getColumnIndex(DB.Books.RATING)));
+            isbn = c.getString(c.getColumnIndex(DB.Books.ID));
+            bookCategory = c.getString(c.getColumnIndex(DB.Books.CATEGORY));
+            if (bookCategory.equalsIgnoreCase("Technical")){
+                MainActivity.ds.addBook(new TechnicalBook(isbn,bookTitle, 20, price, rating));
+            }else if (bookCategory.equalsIgnoreCase("Novel")){
+                MainActivity.ds.addBook(new Novel(isbn,bookTitle, 30, price, rating));
+            }else {
+                MainActivity.ds.addBook(new ArtAlbum(isbn,bookTitle, 40, price, rating));
+            }
         }
+
 
     }
 
