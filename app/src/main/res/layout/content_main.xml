@@ -71,6 +71,17 @@
             android:background="@drawable/buttondrawable"
             />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="Test DB"
+            android:id="@+id/test_DB"
+            android:layout_marginTop="@dimen/margin_buttons"
+            android:layout_marginBottom="@dimen/margin_buttons"
+            android:background="@drawable/buttondrawable"
+            />
+
 
 
     </LinearLayout>

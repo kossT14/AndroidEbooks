@@ -9,6 +9,35 @@ import java.lang.annotation.Target;
 
 public interface DB
 {
+
+	public interface Books extends BaseColumns{
+		public static final String TABLE_NAME = "eBooks";
+
+		public static final String ID = TABLE_NAME + "_" + "id";
+		public static final String TITLE = TABLE_NAME + "_" + "title";
+		public static final String PRICE = TABLE_NAME + "_" + "price";
+		public static final String RATING = TABLE_NAME + "_" + "rating";
+		public static final String CATEGORY = TABLE_NAME + "_" + "category";
+
+	}
+
+	public interface Authors extends BaseColumns{
+		public static final String TABLE_NAME = "Authors";
+		public static final String ID = TABLE_NAME + "_" + "id";
+		public static final String SURNAME = TABLE_NAME + "_" + "surname";
+		public static final String NAME = TABLE_NAME + "_" + "name";
+	}
+
+	public interface BookAuthorLink extends BaseColumns{
+		public static final String TABLE_NAME = "BookAuthorLink";
+		@ForeignKey( table = Books.TABLE_NAME, column = Books.ID, onDeleteCascade = true )
+		public static final String ID = TABLE_NAME + "_" + "idAuthor";
+		public static final String ISBN = TABLE_NAME + "_" + "isbn";
+	}
+
+
+
+
 	public interface Topic extends BaseColumns
 	{
 		public static final String TABLE_NAME = "topic";

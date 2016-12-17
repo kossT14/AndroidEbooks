@@ -16,7 +16,7 @@ public class Utils {
             StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
             String className = stackTrace[3].getClassName();
             String tag = className.substring( className.lastIndexOf( '.' ) + 1 );
-            Log.i( tag, message );
+            Log.w( DataSourceManager.TAG_LOG_BOOKS, message );
         }
 
     }

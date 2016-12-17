@@ -7,10 +7,8 @@ import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.provider.BaseColumns;
 
-import  com.example.kosst.ebooksstore.database.Observable;
-import com.example.kosst.ebooksstore.objectmodels.Utils;
-
 import com.example.kosst.ebooksstore.database.DbProvider.DBObserver;
+import com.example.kosst.ebooksstore.objectmodels.Utils;
 
 public class DbProvider extends Observable<DBObserver>
 {

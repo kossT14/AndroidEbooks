@@ -9,11 +9,12 @@ import android.provider.BaseColumns;
 import android.text.TextUtils;
 
 import com.example.kosst.ebooksstore.MyApplication;
+import com.example.kosst.ebooksstore.database.DB.Books;
 import com.example.kosst.ebooksstore.database.DB.ForeignKey;
+import com.example.kosst.ebooksstore.database.DB.Topic;
 import com.example.kosst.ebooksstore.objectmodels.Utils;
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
-import com.example.kosst.ebooksstore.database.DB.Topic;
 
 import java.io.File;
 import java.lang.annotation.Annotation;
@@ -22,7 +23,7 @@ import java.util.ArrayList;
 
 public class DbHelper extends SQLiteOpenHelper
 {
-	private static final String DATABASE_NAME = "knowledge.db";
+	private static final String DATABASE_NAME = "Books.db";
 	private static final int DATABASE_VERSION = 1;
 
 	static DbHelper newInstance( boolean onSdcard )
@@ -51,9 +52,15 @@ public class DbHelper extends SQLiteOpenHelper
 	public void onCreate( SQLiteDatabase db )
 	{
 		db.beginTransaction();
+
 		try
 		{
 			createTable( db, Topic.class, Topic.ID );
+			createTable(db, Books.class, Books.ID);
+			createTable(db, DB.Authors.class, DB.Authors.ID);
+			createTable(db, DB.BookAuthorLink.class, DB.BookAuthorLink.ID);
+
+
 //			createTable( db, Knowledge.class, Knowledge.ID );
 //			createTable( db, KnowledgeReaction.class, KnowledgeReaction.KNOWLEDGE_ID, KnowledgeReaction.PERSON_ID );
 //			createTable( db, KnowledgeTopic.class, KnowledgeTopic.KNOWLEDGE_ID, KnowledgeTopic.TOPIC_ID );
