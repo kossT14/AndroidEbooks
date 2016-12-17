@@ -9,9 +9,11 @@ import android.provider.BaseColumns;
 import android.text.TextUtils;
 
 import com.example.kosst.ebooksstore.MyApplication;
+import com.example.kosst.ebooksstore.database.DB.ForeignKey;
 import com.example.kosst.ebooksstore.objectmodels.Utils;
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
+import com.example.kosst.ebooksstore.database.DB.Topic;
 
 import java.io.File;
 import java.lang.annotation.Annotation;
@@ -51,7 +53,7 @@ public class DbHelper extends SQLiteOpenHelper
 		db.beginTransaction();
 		try
 		{
-//			createTable( db, Topic.class, Topic.ID );
+			createTable( db, Topic.class, Topic.ID );
 //			createTable( db, Knowledge.class, Knowledge.ID );
 //			createTable( db, KnowledgeReaction.class, KnowledgeReaction.KNOWLEDGE_ID, KnowledgeReaction.PERSON_ID );
 //			createTable( db, KnowledgeTopic.class, KnowledgeTopic.KNOWLEDGE_ID, KnowledgeTopic.TOPIC_ID );
@@ -183,22 +185,22 @@ public class DbHelper extends SQLiteOpenHelper
 						{
 							for( Annotation annotation : annotations )
 							{
-//								if( annotation instanceof ForeignKey )
-//								{
-//									ForeignKey foreignKey = (ForeignKey) annotation;
-//									String table = foreignKey.table();
-//									String column = foreignKey.column();
-//									StringBuilder sbFieldValue = new StringBuilder( " REFERENCES " ).append( table )
-//											.append( "(" ).append( column ).append( ")" );
-//									boolean onDeleteCascade = foreignKey.onDeleteCascade();
-//									if( onDeleteCascade )
-//									{
-//										sbFieldValue.append( " ON DELETE CASCADE" );
-//									}
-//
-//									fieldValue += sbFieldValue.toString();
-//									break;
-//								}
+								if( annotation instanceof ForeignKey )
+								{
+									ForeignKey foreignKey = (ForeignKey) annotation;
+									String table = foreignKey.table();
+									String column = foreignKey.column();
+									StringBuilder sbFieldValue = new StringBuilder( " REFERENCES " ).append( table )
+											.append( "(" ).append( column ).append( ")" );
+									boolean onDeleteCascade = foreignKey.onDeleteCascade();
+									if( onDeleteCascade )
+									{
+										sbFieldValue.append( " ON DELETE CASCADE" );
+									}
+
+									fieldValue += sbFieldValue.toString();
+									break;
+								}
 							}
 						}
 						fieldsArray.add( fieldValue );
